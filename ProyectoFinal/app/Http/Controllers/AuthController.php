@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+class AuthController extends Controller
+{
+    public function showRegistrationForm()
+    {
+        return view('register');
+    }
+
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        // Loguear al usuario automáticamente después del registro
+        auth()->login($user);
+
+        return redirect()->route('dashboard');
+    }
+
+    public function showLoginForm()
+    {
+        return view('login');
+    }
+
+    public function login(Request $request)
+{
+    $credentials = $request->validate([
+        'email' => 'required|string|email',
+        'password' => 'required|string',
+    ]);
+
+    if (auth()->attempt($credentials)) {
+        $user = auth()->user();
+        switch ($user->idRol) {
+            case 1: // Administrador
+                return redirect()->route('dashboard')->with(['userId' => $user->id]);
+                break;
+            case 2: // Maestro
+                return redirect()->route('dashboard')->with(['userId' => $user->id]);
+                break;
+            // Añadir más casos según los roles adicionales
+            case 3:
+                return redirect()->route('dashboard')->with(['userId' => $user->id]); // Si el rol no está definido, redirige a una ruta predeterminada
+                break;
+        }
+    }
+
+    return back()->withErrors(['email' => 'Las credenciales proporcionadas no coinciden con nuestros registros.']);
+}
+
+
+}
+
