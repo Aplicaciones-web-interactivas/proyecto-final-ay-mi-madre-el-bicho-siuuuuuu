@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,7 @@ Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+
+Route::post('/addProvider',[ProviderController::class,'nuevoProveedor'])->name('proveedor.nuevo');
+Route::post('editProvider/{id}',[ProviderController::class,'editarProveedor'])->name('proveedor.editar');
+Route::get('deleteProvider/{id}',[ProviderController::class,'eliminarProveedor'])->name('proveedor.eliminar');

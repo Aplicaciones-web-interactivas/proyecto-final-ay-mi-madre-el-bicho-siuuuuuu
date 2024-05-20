@@ -13,7 +13,7 @@ class Section extends Model
 
     protected $fillable = [
         'workspace_id',
-        'name'
+        'name',
     ];
 
 }
