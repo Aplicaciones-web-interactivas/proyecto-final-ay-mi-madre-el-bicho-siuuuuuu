@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Provider::class);
     }
+
+    public function provider()
+    {
+        return $this->hasOne(Provider::class, 'user_id');
+    }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('workspaces', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('provider_id');
-            $table->string('brand_image');
+            $table->string('brand_image')->nullable();
             $table->timestamps();
 
             $table->foreign('provider_id')->references('id')->on('providers')->onDelete('cascade');

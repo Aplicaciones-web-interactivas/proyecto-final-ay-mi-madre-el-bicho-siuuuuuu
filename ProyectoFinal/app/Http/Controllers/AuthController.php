@@ -54,7 +54,7 @@ class AuthController extends Controller
                 return redirect()->route('dashboard')->with(['userId' => $user->id]);
                 break;
             case 2: // Proveedor
-                return redirect()->route('dashboard')->with(['userId' => $user->id]);
+                return redirect()->route('workspace', ['userId' => $user->id]);
                 break;
             case 3: // Cliente
                 return redirect()->route('dashboard')->with(['userId' => $user->id]); // Si el rol no está definido, redirige a una ruta predeterminada

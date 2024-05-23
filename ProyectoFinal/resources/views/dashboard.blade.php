@@ -38,7 +38,6 @@
                         <th>Nombre</th>
                         <th>Correo</th>
                         <th>Nombre de la marca</th>
-                        <th>Espacio de trabajo</th>
                         <th></th>
                     </tr>
                 </thead>
