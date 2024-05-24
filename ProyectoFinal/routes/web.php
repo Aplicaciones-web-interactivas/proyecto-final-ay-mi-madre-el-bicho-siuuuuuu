@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\WorkspaceController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,5 @@ Route::post('editProvider/{id}',[ProviderController::class,'editarProveedor'])->
 Route::get('deleteProvider/{id}',[ProviderController::class,'eliminarProveedor'])->name('proveedor.eliminar');
 
 Route::post('/addSection',[SectionController::class,'nuevaSeccion'])->name('seccion.nuevo');
+
+Route::post('/addProduct',[ProductController::class,'nuevoProducto'])->name('producto.nuevo');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Provider;
+use App\Models\Product;
 use App\Models\User;
 use App\Models\Section;
 use App\Models\Workspace;
@@ -24,6 +25,11 @@ class WorkspaceController extends Controller
 
         // Encuentra todas las secciones asociadas al workspace
         $sections = Section::where('workspace_id', $workspace->id)->get();
+
+        // Para cada sección, obtener sus productos
+        foreach ($sections as $section) {
+            $section->productos = Product::where('section_id', $section->id)->get();
+        }
 
         // Pasa los datos a la vista
         return view('workspace', [
