@@ -102,10 +102,14 @@
                         <img src="{{ asset($product->image) }}" class="card-img-top" alt="Product Image" style="object-fit: contain; height: 200px;">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div>
-                                <h5 class="card-title">{{ $product->name }}</h5>
+                            <h5 class="card-title" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $product->name }}</h5>
                                 <p class="card-text">Precio: ${{ $product->price }}</p>
                             </div>
                             <button type="button" class="btn btn-primary mt-auto" data-toggle="modal" data-target="#productModal" onclick="openProductModal('{{ $product->id }}', '{{ $product->name }}', '{{ $product->image }}', '{{ $product->description }}', '{{ $product->price }}', '{{ $product->stock }}')">Ver detalles</button>
+                            <div class="d-flex mt-3 justify-content-between">
+                                <button type="button" class="btn btn-warning flex-fill mr-1 text-white" onclick="openEditModal('{{ $product->id }}', '{{ $product->name }}', '{{ $product->image }}', '{{ $product->description }}', '{{ $product->price }}', '{{ $product->stock }}')">Editar     </button>
+                                <button type="button" class="btn btn-danger flex-fill ml-1"><a href="{{route('producto.eliminar',$product->id)}}" class="btn btn-sm btn-danger">Eliminar </a> </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,50 +199,49 @@
 </div>
 
 <!-- MODAL DE EDITAR / ELIMINAR PRODUCTO -->
-<div class="modal fade" id="editarProducto" tabindex="-1" role="dialog" aria-labelledby="agregarProductoLabel" aria-hidden="true">
+<div class="modal fade" id="editarProducto" tabindex="-1" role="dialog" aria-labelledby="editarProductoLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="agregarProductoLabel">Agregar Nuevo Producto</h5>
+                <h5 class="modal-title" id="editarProductoLabel">Editar Producto</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formAgregarProducto" action="{{route('producto.nuevo')}}" method="post" enctype="multipart/form-data">
+                <form id="formEditarProducto" action="{{route('producto.editar')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <!-- Image Upload Card -->
                     <div class="form-group text-center mb-4">
-                        <div id="imageCard" class="add-product-card" style="width: 100%; height: 300px; cursor: pointer;">
-                            <i class="fa fa-plus fa-2x"></i>
-                            <p>Agregar Imagen</p>
+                        <div id="imageCard_edit" class="card" style="width: 100%; height: 300px;">
+                            
                         </div>
                     </div>
                     <!-- Form Inputs -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="name_prod">Nombre del producto</label>
-                            <input type="text" class="form-control" id="name_prod" name="name_prod">
+                            <label for="name_prod_edit">Nombre del producto</label>
+                            <input type="text" class="form-control" id="name_prod_edit" name="name_prod_edit">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="price_prod">Precio del producto</label>
-                            <input type="number" step="0.01" class="form-control" id="price_prod" name="price_prod">
+                            <label for="price_prod_edit">Precio del producto</label>
+                            <input type="number" step="0.01" class="form-control" id="price_prod_edit" name="price_prod_edit">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="description_prod">Descripción del producto</label>
-                            <input type="text" class="form-control" id="description_prod" name="description_prod">
+                            <label for="description_prod_edit">Descripción del producto</label>
+                            <input type="text" class="form-control" id="description_prod_edit" name="description_prod_edit">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="stock">Stock</label>
-                            <input type="number" class="form-control" id="stock" name="stock">
+                            <label for="stock_edit">Stock</label>
+                            <input type="number" class="form-control" id="stock_edit" name="stock_edit">
                         </div>
-                        <input type="hidden" id="section_id_input" name="section_id_input" value="">
+                        <input type="hidden" id="product_id_edit" name="product_id_edit" value="">
                     </div>
                     <div class="form-group text-right">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" form="formAgregarProducto" class="btn btn-primary">Agregar</button>
+                        <button type="submit" form="formEditarProducto" class="btn btn-primary">Editar</button>
                     </div>
                 </form>
             </div>
@@ -276,6 +279,22 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <script>
+
+    function openEditModal(id, name, image, description, price, stock) {
+        // Asignar valores a los campos del formulario
+        document.getElementById('name_prod_edit').value = name;
+        document.getElementById('price_prod_edit').value = price;
+        document.getElementById('description_prod_edit').value = description;
+        document.getElementById('stock_edit').value = stock;
+        document.getElementById('product_id_edit').value = id;
+
+        var imageCard = document.getElementById('imageCard_edit');
+        imageCard.innerHTML = `<img src="{{ asset('${image}') }}" alt="Product Image" style="max-width: 100%; max-height: 100%; object-fit: contain;">`;
+
+        // Abrir el modal
+        $('#editarProducto').modal('show');
+    }
+
 
     function openProductModal(productId, productName, productImage, productDescription, productPrice, productStock) {
         // Actualiza el contenido del modal con los detalles del producto

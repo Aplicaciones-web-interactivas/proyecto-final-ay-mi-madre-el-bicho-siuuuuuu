@@ -40,3 +40,5 @@ Route::get('deleteProvider/{id}',[ProviderController::class,'eliminarProveedor']
 Route::post('/addSection',[SectionController::class,'nuevaSeccion'])->name('seccion.nuevo');
 
 Route::post('/addProduct',[ProductController::class,'nuevoProducto'])->name('producto.nuevo');
+Route::post('/editProduct',[ProductController::class,'editarProducto'])->name('producto.editar');
+Route::get('/deleteProduct/{id}',[ProductController::class,'eliminarProducto'])->name('producto.eliminar');
