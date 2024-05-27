@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\WorkspaceController;
+use App\Http\Controllers\SectionController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +31,12 @@ Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+Route::get('/workspace/{userId}',[WorkspaceController::class, 'index'])->name('workspace');
+
+Route::post('/addProvider',[ProviderController::class,'nuevoProveedor'])->name('proveedor.nuevo');
+Route::post('editProvider/{id}',[ProviderController::class,'editarProveedor'])->name('proveedor.editar');
+Route::get('deleteProvider/{id}',[ProviderController::class,'eliminarProveedor'])->name('proveedor.eliminar');
+
+Route::post('/addSection',[SectionController::class,'nuevaSeccion'])->name('seccion.nuevo');
+
+Route::post('/addProduct',[ProductController::class,'nuevoProducto'])->name('producto.nuevo');

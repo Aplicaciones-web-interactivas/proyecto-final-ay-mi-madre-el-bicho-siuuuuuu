@@ -26,6 +26,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'idRol' => 3,
         ]);
 
         // Loguear al usuario automáticamente después del registro
@@ -52,11 +53,10 @@ class AuthController extends Controller
             case 1: // Administrador
                 return redirect()->route('dashboard')->with(['userId' => $user->id]);
                 break;
-            case 2: // Maestro
-                return redirect()->route('dashboard')->with(['userId' => $user->id]);
+            case 2: // Proveedor
+                return redirect()->route('workspace', ['userId' => $user->id]);
                 break;
-            // Añadir más casos según los roles adicionales
-            case 3:
+            case 3: // Cliente
                 return redirect()->route('dashboard')->with(['userId' => $user->id]); // Si el rol no está definido, redirige a una ruta predeterminada
                 break;
         }
