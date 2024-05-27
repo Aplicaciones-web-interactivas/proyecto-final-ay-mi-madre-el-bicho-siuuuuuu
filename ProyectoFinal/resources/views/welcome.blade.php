@@ -18,9 +18,47 @@
 
     <!-- Styles -->
     <style>
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            /* overflow-x: hidden; */
+        }
+        body{
+            /* background-color: rgb(0, 0, 0); */
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: #1a1a1a;   
+            overflow-x: hidden;         
+        }
         .navbar{
             margin-bottom: 50px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 100px ;
+            gap: 30px;
+            /* background-color: #1d1340; */
+            /* opacity: 0.5; */
+        }
+        .nav-item{
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 99px;
+            background: #0056b3;
+            margin:20px;
+            
+        }
+        .nav-item:hover{
+            background-color: darkcyan;
+        }
+        .logo{
+            font-size: 30px;
+
         }
         .black-banner {
             background-color: #000;
@@ -88,10 +126,11 @@
             margin: 0;
             font-size: 1.1em;
         }
-        .news-container {
+        /* .news-container {
             max-width: 800px;
             margin: 0 auto;
             margin-top: 30px;
+            height: 500px;
         }
         .news-item {
             padding: 10px;
@@ -116,7 +155,64 @@
         }
         .news-item a:hover {
             text-decoration: underline;
-        }
+        } */
+        .news-container {
+    width: 60%;
+    height: 100%;
+    /* height: 1000px; */
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction:column;
+    gap: 20px;
+}
+
+.news-item {
+    display: flex;
+    flex-direction: row;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 800px;
+    /* width: 200px; */
+}
+
+.news-item img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.news-content h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.news-content p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.news-content a {
+    color: #007BFF;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.news-content a:hover {
+    text-decoration: underline;
+}
+
         .gif-container {
             position: relative;
             height: 200px; 
@@ -154,28 +250,146 @@
             0% { right: -50%; } /* Aumentado a -15% para salir de la ventana */
             100% { right: 100%; } /* Aumentado a 115% para salir de la ventana */
         }
+        #navbarSupportedContent{
+           
+            /* background-color: black; */
+            display: flex;
+            align-items: center;
+        }
+     
+.hero-background{
+    display:text;
+    justify-content: center;
+    /* background: url('img/fondo futbol2.jpg') no-repeat; */
+    align-items: center;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    min-height: 100vh;
+    /* margin-bottom:400px; */
+}
+.hero-background img{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+}
+.text h1{
+font-size: 9rem;
+font-family:'Times New Roman', Times, serif;
+text-align: center;
+-webkit-text-stroke: 2px rgb(255, 255, 255);
+color:transparent;
+background: url('img/balones3.png');
+-webkit-background-clip: text;
+background-position: 0 0;
+padding-top: 300px;
+animation: backText 20s linear infinite alternate;
+}
 
+@keyframes backText{
+    100%{
+        background-position: 2000px 0;
+    }
+}
 
+#contentp{
+    text-align: justify;
+    color: white;
+    font-size: 18px;
+    text-align-last: center;
+    line-height: 1.5;
+}
+#Nosotros{
+    margin-top: 100px;
+    margin-left: 100px;
+}
+/* .contenedorNoticias{
+    border: 2px solid rgb(196, 196, 196);
+    /* padding: 20px; */
+/* } */
+.TopNews{
+    margin-left: 130px;
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+} 
+.tituloNosotros{
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+
+}
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <h1 class="logo">TwoFootball</h1>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="btn btn-primary mr-3" href="{{ route('register') }}">Registro</a>
+                    <a class="" href="{{ route('register') }}">Registro</a>
                 </li>
                 <br>
                 <li class="nav-item">
-                    <a class="btn btn-secondary" href="{{ route('login') }}">Login</a>
+                    <a class="" href="{{ route('login') }}">Login</a>
                 </li>
             </ul>
         </div>
     </nav>
+
+
+    <section >
+        <div class="hero-background">
+            <div class="text">
+                <img src="img/fondo futbol2.jpg" alt="fondo" class="parallax">
+                <h1 class="tituloPagina">TwoFootball</h1>
+            </div>
+        </div>
+
+    </section>
+    <section id="Nosotros"class="container-fluid mt-6" >
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="text-center my-4 mt-5">
+                    <h2 class="tituloNosotros">NOSOTROS</h2>
+                </div>
+                <div class="px-3" id="contentp">
+                    <p>Twofootball es la plataforma líder en contenido futbolístico y comercio exclusivo. Nuestra misión es proporcionar el mejor contenido relacionado con el fútbol y hacerlo de manera nativa, todo en un solo lugar para nuestros millones de usuarios en todo el mundo. Ofrecemos noticias detalladas y actualizaciones sobre los distintos eventos de fútbol, seleccionadas cuidadosamente por nuestros equipos editoriales en español, portugués brasileño, inglés, francés, alemán e italiano.</p> 
+                    <p> Además, hemos ampliado nuestra oferta permitiendo que proveedores seleccionados registren sus marcas en nuestra plataforma, dando a los aficionados la oportunidad de explorar y adquirir productos exclusivos directamente desde Twofootball. Con nosotros, no solo estarás al día con las últimas noticias futbolísticas, sino que también podrás acceder a una amplia gama de productos oficiales y exclusivos de tus marcas favoritas.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+
+                <img class="img-fluid" src="img/LogoTF.png" alt="Imagen Nosotros">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="contenedorNoticias">
+            <h2 class="TopNews">Top News</h2>
+            <div class="news-container" id="news-container"></div>
+
+        </div>
+
+    </section>
+    <div class="gif-container">
+        <img src="{{ asset('img/messi.gif') }}" alt="Messi" class="gif right" id="messi">
+        <img src="{{ asset('img/vela.gif') }}" alt="Vela" class="gif right fast" id="vela">
+        <img src="{{ asset('img/mane.gif') }}" alt="Mane" class="gif left" id="mane">
+        <img src="{{ asset('img/dybala.gif') }}" alt="Dybala" class="gif left" id="dybala">
+        <img src="{{ asset('img/modric.gif') }}" alt="Modric" class="gif left" id="modric">
+        <img src="{{ asset('img/morgan.gif') }}" alt="Morgan" class="gif left" id="morgan">
+        <img src="{{ asset('img/james.gif') }}" alt="James" class="gif right" id="james">
+        <img src="{{ asset('img/van-dijk.gif') }}" alt="Van Dijk" class="gif right" id="van-dijk">
+        <img src="{{ asset('img/de_bruyne.gif') }}" alt="De Bruyne" class="gif left" id="de_bruyne">
+    </div>
 
     <div class="container" style="margin-top: 75px">
         <div class="row d-flex justify-content-between">
@@ -208,22 +422,10 @@
             </div>
         </div>
 
-        <div class="news-container" id="news-container"></div>
 
         
     </div>
     <br><br><br><br><br><br>
-    <div class="gif-container">
-        <img src="{{ asset('img/messi.gif') }}" alt="Messi" class="gif right" id="messi">
-        <img src="{{ asset('img/vela.gif') }}" alt="Vela" class="gif right fast" id="vela">
-        <img src="{{ asset('img/mane.gif') }}" alt="Mane" class="gif left" id="mane">
-        <img src="{{ asset('img/dybala.gif') }}" alt="Dybala" class="gif left" id="dybala">
-        <img src="{{ asset('img/modric.gif') }}" alt="Modric" class="gif left" id="modric">
-        <img src="{{ asset('img/morgan.gif') }}" alt="Morgan" class="gif left" id="morgan">
-        <img src="{{ asset('img/james.gif') }}" alt="James" class="gif right" id="james">
-        <img src="{{ asset('img/van-dijk.gif') }}" alt="Van Dijk" class="gif right" id="van-dijk">
-        <img src="{{ asset('img/de_bruyne.gif') }}" alt="De Bruyne" class="gif left" id="de_bruyne">
-    </div>
 
     <div class="black-banner">
         </div>
@@ -362,13 +564,15 @@
                 response.DATA.forEach(function(newsItem) {
                     const article = newsItem.ARTICLE;
                     const newsHtml = `
-                        <div class="news-item">
-                            <img src="${article.IMAGES[0].URL}" alt="${article.IMAGES[0].ALT_TEXT}">
-                            <h2>${article.TITLE}</h2>
-                            <p>${new Date(article.PUBLISHED * 1000).toLocaleString()}</p>
-                            <a href="${article.URL}" target="_blank">Leer más</a>
-                        </div>
-                    `;
+                    <div class="news-item">
+                <img src="${article.IMAGES[0].URL}" alt="${article.IMAGES[0].ALT_TEXT}">
+                <div class="news-content">
+                    <h2>${article.TITLE}</h2>
+                    <p>${new Date(article.PUBLISHED * 1000).toLocaleString()}</p>
+                    <a href="${article.URL}" target="_blank">Leer más</a>
+                </div>
+            </div>
+        `;
                     newsContainer.append(newsHtml);
                 });
 
@@ -406,7 +610,11 @@
 
             showNextGif();
         });
-
+        $(window).on("scroll", function (){
+            var parallax = $(".parallax");
+            var scrollPosition = $(this).scrollTop();
+            parallax.css("transform", "translateY("+ scrollPosition * 0.5 + "px" + " ) " );
+        })
     </script>
 </body>
 </html>
