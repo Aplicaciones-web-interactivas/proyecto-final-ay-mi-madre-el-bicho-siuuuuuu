@@ -475,7 +475,7 @@ animation: backText 20s linear infinite alternate;
                 url: 'https://transfermarkt-db.p.rapidapi.com/v1/rankings/fifa?locale=MX',
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '05fca2d9d3msh056d1b800a0f791p19225fjsn53640c4202e5',
+                    'X-RapidAPI-Key': '2e04ca9ec8msh2db57b1d30d5d99p1bd380jsn7a6b68ec0f4c',
                     'X-RapidAPI-Host': 'transfermarkt-db.p.rapidapi.com'
                 }
             };
@@ -507,7 +507,7 @@ animation: backText 20s linear infinite alternate;
                 url: 'https://transfermarkt-db.p.rapidapi.com/v1/markets/most-valuable-players?locale=MX',
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': '05fca2d9d3msh056d1b800a0f791p19225fjsn53640c4202e5',
+                    'X-RapidAPI-Key': '2e04ca9ec8msh2db57b1d30d5d99p1bd380jsn7a6b68ec0f4c',
                     'X-RapidAPI-Host': 'transfermarkt-db.p.rapidapi.com'
                 }
             };
