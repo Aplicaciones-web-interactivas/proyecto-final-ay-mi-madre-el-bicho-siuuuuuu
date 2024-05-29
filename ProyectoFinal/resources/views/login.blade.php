@@ -184,6 +184,10 @@
 .icono{
     margin: 10px;
 }
+.tituloLogin{
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+
+}
 .FormularioLogin {
     display: flex;
     justify-content: center;
@@ -209,6 +213,7 @@
     justify-content: center;
     background-color: #1a1a1a;
     position: relative;
+    color:white
 }
 
 .register-link {
@@ -228,6 +233,7 @@
     font-weight: bold;
     margin-bottom: 2rem;
     text-align: center;
+    color:white
 }
 
 .form-group {
@@ -281,7 +287,8 @@
 
         .gif {
             position: relative; /* Cambiado a relative */
-            width: 11%; /* Tamaño más grande */
+            width: 40%; /* Tamaño más grande */
+            /* height: 20%; Tamaño más grande */
             display: none;
             top: 0.5rem; /* Ajustado a 1 rem */
         }
@@ -357,46 +364,14 @@
                 <img src="{{ asset('img/vela.gif') }}" alt="Vela" class="gif right fast" id="vela">
                 <img src="{{ asset('img/mane.gif') }}" alt="Mane" class="gif left" id="mane">
                 <img src="{{ asset('img/dybala.gif') }}" alt="Dybala" class="gif left" id="dybala">
-                <img src="{{ asset('img/modric.gif') }}" alt="Modric" class="gif left" id="modric">
-                <img src="{{ asset('img/morgan.gif') }}" alt="Morgan" class="gif left" id="morgan">
+                {{-- <img src="{{ asset('img/modric.gif') }}" alt="Modric" class="gif left" id="modric">
+                <img src="{{ asset('img/morgan.gif') }}" alt="Morgan" class="gif left" id="morgan"> --}}
                 <img src="{{ asset('img/james.gif') }}" alt="James" class="gif right" id="james">
                 <img src="{{ asset('img/van-dijk.gif') }}" alt="Van Dijk" class="gif right" id="van-dijk">
                 <img src="{{ asset('img/de_bruyne.gif') }}" alt="De Bruyne" class="gif left" id="de_bruyne">
             </div>
     </section>
     
-    {{-- <section class="FormularioLogin">
-    <div class="container mx-auto mt-8">
-        <div class="w-96 bg-white p-6 rounded shadow-md mx-auto relative"> <!-- Agregamos la clase relative -->
-            <!-- Agregamos el botón de registro en la esquina superior derecha -->
-            <a href="{{ route('register') }}" class="absolute top-0 right-0 mt-2 mr-2 text-blue-500 hover:text-blue-600">Registrarse</a>
-            <h2 class="text-2xl font-semibold mb-6">Iniciar Sesión</h2>
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-600">Correo Electrónico</label>
-                    <input id="email" type="email" name="email" class="form-input mt-1 block w-full" value="{{ old('email') }}" required autofocus autocomplete="email">
-                </div>
-                <div class="mb-4">
-                    <label for="password" class="block text-gray-600">Contraseña</label>
-                    <input id="password" type="password" name="password" class="form-input mt-1 block w-full" required autocomplete="current-password">
-                </div>
-                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Iniciar Sesión</button>
-            </form>
-        </div>
-    </div>
-</section>
-    <div class="gif-container">
-        <img src="{{ asset('img/messi.gif') }}" alt="Messi" class="gif right" id="messi">
-        <img src="{{ asset('img/vela.gif') }}" alt="Vela" class="gif right fast" id="vela">
-        <img src="{{ asset('img/mane.gif') }}" alt="Mane" class="gif left" id="mane">
-        <img src="{{ asset('img/dybala.gif') }}" alt="Dybala" class="gif left" id="dybala">
-        <img src="{{ asset('img/modric.gif') }}" alt="Modric" class="gif left" id="modric">
-        <img src="{{ asset('img/morgan.gif') }}" alt="Morgan" class="gif left" id="morgan">
-        <img src="{{ asset('img/james.gif') }}" alt="James" class="gif right" id="james">
-        <img src="{{ asset('img/van-dijk.gif') }}" alt="Van Dijk" class="gif right" id="van-dijk">
-        <img src="{{ asset('img/de_bruyne.gif') }}" alt="De Bruyne" class="gif left" id="de_bruyne">
-    </div> --}}
     <nav class="FollowOnefootball_followUsWrapper__HypyZ m-5">
         <h2 class="FollowOnefootball_header__dSfrr mb-4 text-center" id="tituloRedesSociales">Sigue a<!-- --> TwoFootball</h2>
         <ul class="FollowTwofootballContenedor m-5">
