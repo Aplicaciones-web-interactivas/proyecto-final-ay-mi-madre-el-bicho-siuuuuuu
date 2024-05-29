@@ -77,6 +77,12 @@
             <div class="mx-auto text-center">
                 <p class="h1">{{ $brandName }}</p>
             </div>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('ruta_graficas', $userId) }}">Gráficas</a>
+                </li>
+            </ul>
         </div>
     </nav>
         

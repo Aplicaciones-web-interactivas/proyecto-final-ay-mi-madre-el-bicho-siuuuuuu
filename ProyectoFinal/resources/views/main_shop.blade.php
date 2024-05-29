@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Catálogo de Productos</title>
     <!-- Fonts and Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -313,7 +314,7 @@
                                                 <h5 class="card-title">{{ $product->name }}</h5>
                                                 <p class="card-text">{{ $product->description }}</p>
                                                 <p class="card-text"><strong>Precio:</strong> ${{ $product->price }}</p>
-                                                <button class="btn btn-primary" data-toggle="modal" data-target="#productModal" data-name="{{ $product->name }}" data-description="{{ $product->description }}" data-price="{{ $product->price }}" data-stock="{{ $product->stock }}" data-image="{{ $product->image }}">Ver Detalles</button>
+                                                <button class="btn btn-primary" data-toggle="modal" data-target="#productModal" data-id="{{ $product->id }}" data-name="{{ $product->name }}" data-description="{{ $product->description }}" data-price="{{ $product->price }}" data-stock="{{ $product->stock }}" data-image="{{ $product->image }}">Ver Detalles</button>
                                             </div>
                                         </div>
                                     </div>
@@ -345,6 +346,7 @@
                     <div class="form-group">
                         <label for="modalProductQuantity">Cantidad:</label>
                         <input type="number" class="form-control" id="modalProductQuantity" value="1" min="1">
+                        <input type="hidden" id="selectedProductId">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -384,7 +386,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Proceder al Pago</button>
+                    <button type="button" class="btn btn-primary" id="proceedToPayment">Proceder al Pago</button>
                 </div>
             </div>
         </div>
@@ -472,12 +474,13 @@
             // Open product modal and fill details
             $('#productModal').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget);
+                var id = button.data('id');
                 var name = button.data('name');
                 var description = button.data('description');
                 var price = button.data('price');
                 var stock = button.data('stock');
                 var image = button.data('image');
-
+                
                 var modal = $(this);
                 modal.find('.modal-title').text(name);
                 modal.find('#modalProductName').text(name);
@@ -486,20 +489,25 @@
                 modal.find('#modalProductStock').text(stock);
                 modal.find('.modal-img').attr('src', image);
                 modal.find('#modalProductQuantity').val(1);
+                modal.find('#selectedProductId').val(id);
             });
 
             // Add to cart
             $('#addToCart').click(function() {
                 var modal = $('#productModal');
                 var name = modal.find('#modalProductName').text();
+                var id = parseInt(modal.find('#selectedProductId').val());
                 var price = parseFloat(modal.find('#modalProductPrice').text());
                 var quantity = parseInt(modal.find('#modalProductQuantity').val());
 
                 var product = {
+                    id: id,
                     name: name,
                     price: price,
                     quantity: quantity
                 };
+
+                console.log(product);
 
                 var existingProductIndex = cart.findIndex(item => item.name === name);
                 if (existingProductIndex > -1) {
@@ -514,6 +522,16 @@
                 // Mostrar la alerta de éxito
                 showSuccessAlert("Producto añadido al carrito");
             });
+
+            $('#proceedToPayment').click(function() {
+                var productsData = cart.map(item => `${item.id}:${item.quantity}`).join(',');
+                window.location.href = `{{ route('proceed-to-payment') }}?products=${productsData}`;
+                showSuccessAlert("Compra realizada con éxito");
+            });
+
+
+
+
 
             // Update cart count
             function updateCartCount() {
