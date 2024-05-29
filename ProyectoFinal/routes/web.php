@@ -41,6 +41,8 @@ Route::get('deleteProvider/{id}',[ProviderController::class,'eliminarProveedor']
 Route::get('graphics/{id}',[ProviderController::class,'graficaBarras'])->name('ruta_graficas');
 
 Route::post('/addSection',[SectionController::class,'nuevaSeccion'])->name('seccion.nuevo');
+Route::post('/editSection',[SectionController::class,'editarSeccion'])->name('seccion.editar');
+Route::get('/editSection/{id}',[SectionController::class,'eliminarSeccion'])->name('seccion.eliminar');
 
 Route::post('/addProduct',[ProductController::class,'nuevoProducto'])->name('producto.nuevo');
 Route::post('/editProduct',[ProductController::class,'editarProducto'])->name('producto.editar');

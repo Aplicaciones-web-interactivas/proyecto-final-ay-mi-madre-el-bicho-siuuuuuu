@@ -20,4 +20,18 @@ class SectionController extends Controller
 
         return redirect()->back();
     }
+
+    public function editarSeccion(Request $request){
+        $seccion = Section::find($request->section_id_input_edit);
+        $seccion->name = $request->input('nombre_edit');
+        $seccion->save();
+        return redirect()->back();
+    }
+
+    public function eliminarSeccion($id){
+        $seccion=Section::find($id);
+        $seccion->delete();
+        return redirect()->back();
+    }
+
 }

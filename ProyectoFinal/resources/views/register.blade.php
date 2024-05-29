@@ -353,7 +353,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email" class="form-label">Correo Electrónico</label>
-                    <input id="email" type="email" name="email" class="form-input" value="{{ old('email') }}" required autocomplete="email">
+                    <input id="email" type="email" name="email" class="form-input" value="{{ old('email') }}" required autocomplete="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label">Contraseña</label>

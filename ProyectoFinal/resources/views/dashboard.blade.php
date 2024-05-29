@@ -327,7 +327,7 @@
                                 <button type="button" class="btn btn-warning btn-sm" onclick="editarProveedor('{{ $proveedor->user->id }}', '{{ $proveedor->user->name }}', '{{ $proveedor->user->email }}')">
                                     <i class="fas fa-edit"></i>
                                 </button>
-                                <a href="{{route('proveedor.eliminar',$proveedor->user->id)}}" class="btn btn-sm btn-danger"> <i class="fas fa-trash">  </i></a> 
+                                <a onclick="confirmDelete('{{ $proveedor->user->id  }}')" class="btn btn-sm btn-danger"> <i class="fas fa-trash">  </i></a> 
                             </td>
                         </tr>
                     @endforeach
@@ -352,19 +352,19 @@
                             @csrf
                                 <div class="form-group">
                                     <label for="nombre">Nombre completo</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="correo">Correo</label>
-                                    <input type="email" class="form-control" id="correo" name="correo">
+                                    <input type="email" class="form-control" id="correo" name="correo" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
                                 </div>
                                 <div class="form-group">
                                     <label for="contraseña">Contraseña</label>
-                                    <input type="text" class="form-control" id="contraseña" name="contraseña">
+                                    <input type="text" class="form-control" id="contraseña" name="contraseña" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="brand">Nombre de la marca</label>
-                                    <input type="text" class="form-control" id="brand" name="brand">
+                                    <input type="text" class="form-control" id="brand" name="brand" required>
                                 </div>
                                 
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -395,7 +395,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="correo_prov">Correo</label>
-                                <input type="email" class="form-control" id="correo_prov" name="email">
+                                <input type="email" class="form-control" id="correo_prov" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
                             </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-primary">Editar</button>
@@ -469,6 +469,25 @@
   
 
     <script>
+
+        function confirmDelete(providerId) {
+                Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: '¡No podrás revertir esto!',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Sí, eliminarlo',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Redireccionar a la ruta de eliminación
+                        window.location.href = "{{ route('proveedor.eliminar', '') }}/" + providerId;
+                    }
+                });
+            }
+
         function editarProveedor(id, nombre, correo) {
             $('#nombre_prov').val(nombre); 
             $('#correo_prov').val(correo); 
@@ -476,6 +495,69 @@
             form.action = "{{ route('proveedor.editar', ':id') }}".replace(':id', id);
             $('#editarProveedor').modal('show');
         }
+        document.getElementById('formEditarProveedor').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var form = document.getElementById('formEditarProveedor');
+
+            // Enviar el formulario
+            form.submit();
+
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: 'Los datos del proveedor han sido actualizados correctamente.',
+                confirmButtonText: 'Aceptar',
+                showConfirmButton: false, // Ocultar el botón de confirmación
+                timer: 5000, // Duración de la alerta en milisegundos (en este caso, 5 segundos)
+                timerProgressBar: true, // Muestra una barra de progreso del temporizador
+                didOpen: () => {
+                    Swal.showLoading();
+                    const timerInterval = setInterval(() => {
+                        const content = Swal.getContent();
+                        if (content) {
+                            const b = content.querySelector('b');
+                            if (b) {
+                                b.textContent = Math.ceil(Swal.getTimerLeft() / 1000);
+                            }
+                        }
+                    }, 100);
+                    // Limpiar el intervalo cuando la alerta se cierre
+                    Swal.getPopup().addEventListener('mouseleave', () => {
+                        clearInterval(timerInterval);
+                    });
+                },
+                willClose: () => {
+                    // Redireccionar a la página anterior cuando la alerta se cierre
+                    window.history.back();
+                }
+            }).then((result) => {
+                // Si el usuario da clic en Aceptar, redirecciona a la página anterior
+                if (result.isConfirmed) {
+                    window.history.back();
+                }
+            });
+        });
+
+        document.getElementById('formAgregarProveedor').addEventListener('submit', function(event) {
+        // Evitar que el formulario se envíe normalmente
+        event.preventDefault();
+
+        var form = document.getElementById('formAgregarProveedor');
+        form.submit();
+
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: 'El proveedor se ha añadido correctamente.',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            // Si el usuario da clic en Aceptar, redirecciona a la página anterior
+            if (result.isConfirmed) {
+                window.history.back();
+            }
+        });
+    });
     </script>
 
 </body>
