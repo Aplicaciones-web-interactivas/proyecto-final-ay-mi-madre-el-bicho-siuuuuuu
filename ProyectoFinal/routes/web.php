@@ -32,6 +32,7 @@ Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('
 Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard_graphics',[DashboardController::class, 'getDashboardData'])->name('ruta_graficas_admin');
 Route::get('/workspace/{userId}',[WorkspaceController::class, 'index'])->name('workspace');
 
 
