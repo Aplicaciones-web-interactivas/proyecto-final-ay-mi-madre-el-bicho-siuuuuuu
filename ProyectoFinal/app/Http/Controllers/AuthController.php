@@ -6,9 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth; 
 
 class AuthController extends Controller
 {
+    public function logout(Request $request){
+        Auth::logout();
+        // auth()->logout($user);
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect(route('login'));
+    }
     public function showRegistrationForm()
     {
         return view('register');

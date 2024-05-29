@@ -51,3 +51,6 @@ Route::get('/deleteProduct/{id}',[ProductController::class,'eliminarProducto'])-
 
 Route::get('/shop',[ShopController::class, 'index'])->name('shop');
 Route::get('/proceed-to-payment', [ShopController::class, 'processPayment'])->name('proceed-to-payment');
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+

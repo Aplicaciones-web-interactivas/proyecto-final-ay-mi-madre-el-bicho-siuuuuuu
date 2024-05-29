@@ -197,64 +197,7 @@
         -webkit-text-stroke: 2px rgb(255, 255, 255);
     
     }
-    .FollowOnefootball_grid__card__link__OooU8 {
-        
-        flex-direction: column;
-        align-items: flex-start;
-        color: var(--primary-text-color);
-        padding: 1rem;
-    }
     
-    /* @media (min-width: 400px) {
-        .FollowTwofootballContenedor {
-            grid-template-columns: repeat(1, 1fr);
-        }
-    } */
-    @media (max-width: 800px) {
-        .FollowTwofootballContenedor {
-            display: flex;
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-    @media (max-width: 400px) {
-        .FollowTwofootballContenedor {
-            display: flex;
-            grid-template-columns: repeat(1, 1fr);
-        }
-    }
-    .FollowTwofootballContenedor{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0rem;
-    }
-    
-    .FollowOnefootball_followUsWrapper__HypyZ {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 2rem;
-        max-width: calc(var(--root-max-width) + 0px);
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .FollowOnefootball_grid__card__bmt9z {
-        background-color: var(--alert-background-color);
-        min-width: 0;
-    }
-    .FollowOnefootball_grid__card__link__OooU8 span {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 100%;
-        margin-top: .35rem;
-    }
-    .FollowOnefootball_grid__card__link__OooU8 .FollowOnefootball_grid__card__link__handle__LTz92 {
-        font-weight: 700;
-    }
-    .FollowOnefootball_followUsWrapper__HypyZ a {
-        text-decoration: none;
-    }
     #colorCards{
         /* background-color: #747474; */
         background-color: #333;
@@ -267,12 +210,164 @@
     .icono{
         margin: 10px;
     }
-        </style>
+    /* .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Encabezado de la tabla */
+/* .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Botón Agregar Proveedor */
+/* .btn-primary {
+    background-color: #00ff00;
+    border: none;
+    color: #1a1a1a;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #00cc00;
+    transform: scale(1.05);
+}
+
+/* Estilos para la tabla */
+/*.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #e4e4e4;
+    background-color: #2c2c2c;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #3a3a3a;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #3a3a3a;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #3a3a3a;
+}
+
+/* Estilos para los botones de acción */
+/*.btn-warning {
+    background-color: #ffcc00;
+    border: none;
+    color: #1a1a1a;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-warning:hover {
+    background-color: #ff9900;
+    transform: scale(1.05);
+}
+
+.btn-danger {
+    background-color: #ff4d4d;
+    border: none;
+    color: #1a1a1a;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}  */
+.container {
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.table-header h1 {
+    color: #e4e4e4;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #e4e4e4;
+    background-color: #2c2c2c;
+}
+
+.table thead th {
+    border-bottom: 2px solid #444;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #444;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #2c2c2c;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #333;
+}
+
+.table-hover tbody tr:hover {
+    color: #fff;
+    background-color: #444;
+}
+
+.table-dark {
+    background-color: transparent;
+}
+
+.table-responsive {
+    margin-top: 20px;
+}
+
+.btn {
+    border: none;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #1a1a1a;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+</style>
         <!-- Styles -->
     </head>
 
     
-    <body class="antialiased">
+    <body>
         <nav class="navbar navbar-expand-lg fixed-top">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -283,19 +378,99 @@
                 <img src="img/LogoTF.png" alt="Logo" height="40" class="navbar-brand">
                 <h1 class="logo">TWOFOOTBALL</h1>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-itemLogin pl-4 pr-4 pt-2 pb-2">
+                    {{-- <li class="nav-itemLogin pl-4 pr-4 pt-2 pb-2">
                         <a class="" href="{{ route('login') }}">Inicia sesión</a>
                         {{-- <a class="" href="{{ route('login') }}">Login</a> --}}
+                    {{-- </li> --}} 
+                    <li class="nav-itemLogin pl-4 pr-4 pt-2 pb-2">
+                        <a href="{{ route('logout') }}"><button type="button">Cerrar sesión</button>
+                        </a>                        {{-- <a class="" href="{{ route('login') }}">Login</a> --}}
                     </li>
-                    <li class="nav-itemRegister pl-4 pr-4 pt-2 pb-2">
+                    {{-- <li class="nav-itemRegister pl-4 pr-4 pt-2 pb-2">
                         <a class="" href="{{ route('register') }}">Registro</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </nav>
-        <br><br><br><br><br><br><br>
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <br><br><br><br><br><br><br><br><br>
+        <div class="container mt-5">
+            <div class="header d-flex justify-content-between align-items-center mb-3">
+                <h1>Lista de proveedores</h1>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Nombre de la marca</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">
+                    @foreach ($proveedores as $proveedor)
+                        <tr> 
+                            <td>{{ $proveedor->user->name }}</td>
+                            <td>{{ $proveedor->user->email }}</td>
+                            <td>{{ $proveedor->brand_name }}</td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm" onclick="editarProveedor('{{ $proveedor->user->id }}', '{{ $proveedor->user->name }}', '{{ $proveedor->user->email }}')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <a href="{{route('proveedor.eliminar',$proveedor->user->id)}}" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a> 
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        {{-- <div class="container mt-5">
+            <div class="header d-flex justify-content-between align-items-center mb-3">
+                <h1>Lista de proveedores</h1>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Nombre de la marca</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">
+                    @foreach ($proveedores as $proveedor)
+                        <tr> 
+                            <td>{{ $proveedor->user->name }}</td>
+                            <td>{{ $proveedor->user->email }}</td>
+                            <td>{{ $proveedor->brand_name }}</td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm" onclick="editarProveedor('{{ $proveedor->user->id }}', '{{ $proveedor->user->name }}', '{{ $proveedor->user->email }}')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <a href="{{route('proveedor.eliminar',$proveedor->user->id)}}" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a> 
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div> --}}
+        
+        {{-- <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <button class="btn btn-primary mb-3 ms-4" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
+            </div>
+        </nav>
+{{--  --}}
+        {{-- <nav class="navbar navbar-expand-lg">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -313,6 +488,39 @@
         
 
         <div class="container mt-5">
+            <div class="table-header">
+                <h1>Lista de proveedores</h1>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Nombre de la marca</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-body">
+                    @foreach ($proveedores as $proveedor)
+                        <tr> 
+                            <td>{{ $proveedor->user->name }}</td>
+                            <td>{{ $proveedor->user->email }}</td>
+                            <td>{{ $proveedor->brand_name }}</td>
+                            <td>
+                                <button type="button" class="btn btn-warning btn-sm" onclick="editarProveedor('{{ $proveedor->user->id }}', '{{ $proveedor->user->name }}', '{{ $proveedor->user->email }}')">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <a href="{{route('proveedor.eliminar',$proveedor->user->id)}}" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a> 
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div> --}}
+        
+        {{-- <div class="container mt-5">
             <table class="table">
                 <h1>Lista de proveedores</h1>
                 <thead>
@@ -339,7 +547,7 @@
                     @endforeach
                 </tbody>
             </table>
-        </div>
+        </div> --}}
 
 
 
@@ -410,56 +618,9 @@
                 </div>
             </div>
         </div>
-        <nav class="FollowOnefootball_followUsWrapper__HypyZ m-5">
-            <h2 class="FollowOnefootball_header__dSfrr mb-4 text-center" id="tituloRedesSociales">Sigue a<!-- --> TwoFootball</h2>
-            <ul class="FollowTwofootballContenedor m-5">
-                <li class="card" id="colorCards">
-                    <a href="https://www.instagram.com/onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                        <img alt="Instagram icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/instagram_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/instagram_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/instagram_dark.svg">
-                        <span title="Instagram">Instagram</span>
-                        <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@onefootball">@twofootball</span>
-                    </a>
-                </li>
-                <li class="card" id="colorCards">
-                    <a href="https://www.facebook.com/OneFootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                        <img alt="Facebook icon" decoding="async" class="icono"loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/facebook_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/facebook_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/facebook_dark.svg">
-                        <span title="Facebook">Facebook</span>
-                        <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball.de">@twofootball.de</span>
-                    </a>
-                </li>
-                <li class="card" id="colorCards">
-                    <a href="https://twitter.com/Onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                        <img alt="Twitter icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/twitter_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/twitter_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/twitter_dark.svg">
-                        <span title="Twitter">Twitter</span>
-                        <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball">@twofootball</span>
-                    </a>
-                </li>
-                
-                <li class="card" id="colorCards">
-                    <a href="https://www.youtube.com/channel/UC2-0sEOYbQFuaURd_AU6Krg" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                        <img alt="Youtube icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/youtube_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/youtube_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/youtube_dark.svg">
-                        <span title="Youtube">Youtube</span>
-                        <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball">@twofootball</span>
-                    </a>
-                </li>
-                <li class="card" id="colorCards">
-                    <a href="https://www.tiktok.com/@onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                        <img alt="TikTok icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/tiktok_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/tiktok_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/tiktok_dark.svg">
-                        <span title="TikTok">TikTok</span>
-                        <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@onefootball">@twofootball</span>
-                    </a>
-                </li>
-                <li class="card" id="colorCards">
-                    <a href="https://audioboom.com/channel/onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                        <img alt="AudioBoom icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/audioboom_dark_v2.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/audioboom_dark_v2.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/audioboom_dark_v2.svg">
-                        <span title="AudioBoom">AudioBoom</span>
-                        <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball">@twofootball</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        
         <footer id="footerTWO">
-            <div class="container text-center" >
+            <div class="container2 text-center" >
                 <a class="navbar-brand" href="#" ><img  class="logoTWO" src="img/LogoTF.png" alt="Logo" height="40"></a>
         
                 <p id="letrafooter"class="mb-1">© 2024 TWO FOOTBALL</p>
