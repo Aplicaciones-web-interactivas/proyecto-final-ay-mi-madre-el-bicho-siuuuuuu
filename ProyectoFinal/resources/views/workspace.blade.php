@@ -16,16 +16,25 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Styles -->
         <style>
             .section-box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 border: 1px solid #ccc;
                 border-radius: 5px;
                 background-color: #f8f9fa;
                 width: 100%;
                 padding: 15px;
                 margin-bottom: 5px;
+            }
+            .ellipsis-icon {
+                color: #ccc; /* Color más claro */
+                margin-left: auto; /* Mueve el icono al final de la sección */
+                cursor: pointer;
             }
             .add-product-card {
                 border: 2px dashed #ccc;
@@ -74,15 +83,16 @@
                 <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#agregarSeccion">Agregar Seccion</button>
             </div>
 
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item me-5">
+                    <a class="nav-link" href="{{ route('ruta_graficas', $userId) }}">Gráficas</a>
+                </li>
+            </ul>
+
             <div class="mx-auto text-center">
                 <p class="h1">{{ $brandName }}</p>
             </div>
 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('ruta_graficas', $userId) }}">Gráficas</a>
-                </li>
-            </ul>
         </div>
     </nav>
         
@@ -90,14 +100,17 @@
  <!-- Secciones -->
 <div class="container mt-5">
     @foreach ($sections as $section)
-        <div class="section-box bg-light mb-3 p-3 section">
-            <h5>{{ $section->name }}</h5>
-        </div>
+    <div class="section-box bg-light mb-3 p-3 section d-flex justify-content-between">
+        <h5>{{ $section->name }}</h5>
+        <a onclick="openEditSectionModal('{{ $section->id }}','{{ $section->name }}')"><i class="fas fa-ellipsis-v ellipsis-icon"></i></a>
+    </div>
+
+
         <!-- Product Cards -->
         <div class="row product_container">
             <!-- Card for adding new product -->
             <div class="col-md-3 mb-3">
-                        <div class="card add-product-card custom-card" style="cursor: pointer;" onclick="openAddProductModal({{ $section->id }})">
+                        <div class="card add-product-card custom-card d-flex justify-center" style="cursor: pointer;" onclick="openAddProductModal({{ $section->id }})">
                             <i class="fa fa-plus fa-2x"></i>
                             <p>Añadir nuevo producto</p>
                         </div>
@@ -114,7 +127,7 @@
                             <button type="button" class="btn btn-primary mt-auto" data-toggle="modal" data-target="#productModal" onclick="openProductModal('{{ $product->id }}', '{{ $product->name }}', '{{ $product->image }}', '{{ $product->description }}', '{{ $product->price }}', '{{ $product->stock }}')">Ver detalles</button>
                             <div class="d-flex mt-3 justify-content-between">
                                 <button type="button" class="btn btn-warning flex-fill mr-1 text-white" onclick="openEditModal('{{ $product->id }}', '{{ $product->name }}', '{{ $product->image }}', '{{ $product->description }}', '{{ $product->price }}', '{{ $product->stock }}')">Editar     </button>
-                                <button type="button" class="btn btn-danger flex-fill ml-1"><a href="{{route('producto.eliminar',$product->id)}}" class="btn btn-sm btn-danger">Eliminar </a> </button>
+                                <button type="button" class="btn btn-danger flex-fill ml-1" onclick="confirmDelete('{{ $product->id }}')">Eliminar</button>                            
                             </div>
                         </div>
                     </div>
@@ -151,6 +164,36 @@
                 </div>
             </div>
         </div>
+
+        <!-- MODAL DE EDITAR NOMBRE DE SECCION -->
+        <div class="modal fade" id="editarSeccion" tabindex="-1" role="dialog" aria-labelledby="editarSeccionLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarSeccionLabel">Editar Sección</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditarSeccion" action="{{route('seccion.editar')}}" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label for="nombre_edit">Nombre de la sección</label>
+                            <input type="text" class="form-control" id="nombre_edit" name="nombre_edit">
+                        </div>
+                        <input type="hidden" id="section_id_input_edit" name="section_id_input_edit" value="">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="eliminarSeccionBtn" onclick="eliminaSection()">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" form="formEditarSeccion" class="btn btn-primary">Editar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
 <!-- MODAL DE PRODUCTO -->
 <div class="modal fade" id="agregarProducto" tabindex="-1" role="dialog" aria-labelledby="agregarProductoLabel" aria-hidden="true">
@@ -176,21 +219,21 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="name_prod">Nombre del producto</label>
-                            <input type="text" class="form-control" id="name_prod" name="name_prod">
+                            <input type="text" class="form-control" id="name_prod" name="name_prod" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="price_prod">Precio del producto</label>
-                            <input type="number" step="0.01" class="form-control" id="price_prod" name="price_prod">
+                            <input type="number" step="0.01" class="form-control" id="price_prod" name="price_prod" min="0" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="description_prod">Descripción del producto</label>
-                            <input type="text" class="form-control" id="description_prod" name="description_prod">
+                            <input type="text" class="form-control" id="description_prod" name="description_prod" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="stock">Stock</label>
-                            <input type="number" class="form-control" id="stock" name="stock">
+                            <input type="number" class="form-control" id="stock" name="stock" min="0" required>
                         </div>
                         <input type="hidden" id="section_id_input" name="section_id_input" value="">
                     </div>
@@ -301,12 +344,40 @@
         $('#editarProducto').modal('show');
     }
 
+    function openEditSectionModal(id, name) {
+        // Asignar valores a los campos del formulario
+        document.getElementById('section_id_input_edit').value = id;
+        document.getElementById('nombre_edit').value = name;
+
+        $('#editarSeccion').modal('show');
+    }
+
+    function eliminaSection() {
+        // Asignar valores a los campos del formulario
+        var id = document.getElementById('section_id_input_edit').value;
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: '¡No podrás revertir esto!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminarlo',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redireccionar a la ruta de eliminación
+                window.location.href = "{{ route('seccion.eliminar', '') }}/" + id;
+            }
+        });
+        
+    }
 
     function openProductModal(productId, productName, productImage, productDescription, productPrice, productStock) {
         // Actualiza el contenido del modal con los detalles del producto
         $('#productDetails').html(`
             <h5>${productName}</h5>
-            <img src="${productImage}" alt="${productName}" class="img-fluid">
+            <img src="{{ asset('${productImage}') }}" alt="${productName}" class="img-fluid">
             <p>Descripción: ${productDescription}</p>
             <p>Precio: $${productPrice}</p>
             <p>Stock: ${productStock}</p>
@@ -322,6 +393,24 @@
             output.innerHTML = '<img src="' + reader.result + '" alt="Product Image" style="max-width: 100%; max-height: 100%; object-fit: cover;">';
         };
         reader.readAsDataURL(event.target.files[0]);
+    }
+
+    function confirmDelete(productId) {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: '¡No podrás revertir esto!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Sí, eliminarlo',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redireccionar a la ruta de eliminación
+                window.location.href = "{{ route('producto.eliminar', '') }}/" + productId;
+            }
+        });
     }
 
 
@@ -343,6 +432,66 @@
         // Abrir el modal de agregar producto
         $('#agregarProducto').modal('show');
     }
+
+    document.getElementById('formEditarProducto').addEventListener('submit', function(event) {
+        // Evitar que el formulario se envíe normalmente
+        event.preventDefault();
+
+        var form = document.getElementById('formEditarProducto');
+        form.submit();
+
+        Swal.fire({
+            icon: 'success',
+            title: '¡Producto editado!',
+            text: 'El producto se ha editado correctamente.',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            // Si el usuario da clic en Aceptar, redirecciona a la página anterior
+            if (result.isConfirmed) {
+                window.history.back();
+            }
+        });
+    });
+
+    document.getElementById('formEditarSeccion').addEventListener('submit', function(event) {
+        // Evitar que el formulario se envíe normalmente
+        event.preventDefault();
+
+        var form = document.getElementById('formEditarSeccion');
+        form.submit();
+
+        Swal.fire({
+            icon: 'success',
+            title: '¡Sección editada!',
+            text: 'La sección se ha editado correctamente.',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            // Si el usuario da clic en Aceptar, redirecciona a la página anterior
+            if (result.isConfirmed) {
+                window.history.back();
+            }
+        });
+    });
+
+    document.getElementById('formAgregarSeccion').addEventListener('submit', function(event) {
+
+            event.preventDefault();
+
+            var form = document.getElementById('formAgregarSeccion');
+            form.submit();
+
+            Swal.fire({
+                icon: 'success',
+                title: '¡Sección añadida!',
+                text: 'La sección se ha añadido correctamente.',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                // Si el usuario da clic en Aceptar, redirecciona a la página anterior
+                if (result.isConfirmed) {
+                    window.history.back();
+                }
+            });
+        });
 
     $(document).ready(function() {
 
