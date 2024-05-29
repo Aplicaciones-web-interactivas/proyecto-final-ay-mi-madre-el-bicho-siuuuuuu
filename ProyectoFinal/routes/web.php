@@ -7,6 +7,7 @@ use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\WorkspaceController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 Route::get('/workspace/{userId}',[WorkspaceController::class, 'index'])->name('workspace');
+Route::get('/shop',[ShopController::class, 'index'])->name('shop');
 
 Route::post('/addProvider',[ProviderController::class,'nuevoProveedor'])->name('proveedor.nuevo');
 Route::post('editProvider/{id}',[ProviderController::class,'editarProveedor'])->name('proveedor.editar');

@@ -32,7 +32,7 @@ class AuthController extends Controller
         // Loguear al usuario automáticamente después del registro
         auth()->login($user);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('shop');
     }
 
     public function showLoginForm()
@@ -57,7 +57,7 @@ class AuthController extends Controller
                 return redirect()->route('workspace', ['userId' => $user->id]);
                 break;
             case 3: // Cliente
-                return redirect()->route('dashboard')->with(['userId' => $user->id]); // Si el rol no está definido, redirige a una ruta predeterminada
+                return redirect()->route('shop')->with(['userId' => $user->id]); // Si el rol no está definido, redirige a una ruta predeterminada
                 break;
         }
     }
