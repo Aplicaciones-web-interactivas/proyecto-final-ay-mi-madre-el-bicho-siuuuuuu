@@ -36,26 +36,65 @@
             display: flex;
             justify-content: space-evenly;
             align-items: center;
-            height: 100px ;
+            height: 75px;
             gap: 30px;
-            /* background-color: #1d1340; */
+            background-color: #000;
+            color:white;
+            font-family: 'Poppins', sans-serif;
             /* opacity: 0.5; */
         }
-        .nav-item{
+        #navbarSupportedContent{
+            width: 100%;
+            overflow: hidden;
+        }
+        .nav-itemLogin{
             text-decoration: none;
-            font-size: 15px;
+            font-size: small;
             font-weight: 600;
-            padding: 4px 8px;
-            border-radius: 99px;
-            background: #0056b3;
+            /* padding: 5px; */
+            border-radius: 0.4rem;
+            color: rgb(0, 0, 0);
+            background: transparent;
             margin:20px;
+            color: white;
+            appearance: none;
+            display: inline-block;
+            transition: border-color 0.3s ease-in-out;     
+        }
+        .nav-itemLogin a{
+            color:white;
+            text-decoration: none;
+            display: inline-block;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .nav-itemRegister{
+            text-decoration: none;
+            font-size: small;
+            font-weight: 600;
+            /* padding: 5px; */
+            border-radius: 0.4rem;
+            color: rgb(0, 0, 0);
+            background: white;
+            color:black;
+            margin:20px;
+            appearance: none;
+            display: inline-block;
+            transition: border-color 0.3s ease-in-out;
             
         }
-        .nav-item:hover{
-            background-color: darkcyan;
+        .nav-itemRegister a{
+            color:black;
+            text-decoration: none;
+            display: inline-block;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .nav-itemLogin:hover{
+            border: solid 0.8px #f9f9f9;
         }
         .logo{
-            font-size: 30px;
+            font-size:medium;
+            font-family: 'Poppins', sans-serif;
+
 
         }
         .black-banner {
@@ -314,7 +353,7 @@
     /* margin-bottom:400px; */
 }
 .hero-background img{
-    height: 100%;
+    height: 800px;
     width: 100%;
     position: absolute;
     top: 0;
@@ -470,14 +509,16 @@ animation: backText 20s linear infinite alternate;
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <h1 class="logo">TwoFootball</h1>
+            {{-- <a class="navbar-brand" href="#" ><img  class="logoTWO" src="img/LogoTF.png" alt="Logo" height="40"></a> --}}
+            <img src="img/LogoTF.png" alt="Logo" height="40" class="navbar-brand">
+            <h1 class="logo">TWOFOOTBALL</h1>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="" href="{{ route('register') }}">Registro</a>
+                <li class="nav-itemLogin pl-4 pr-4 pt-2 pb-2">
+                    <a class="" href="{{ route('login') }}">Inicia sesión</a>
+                    {{-- <a class="" href="{{ route('login') }}">Login</a> --}}
                 </li>
-                <br>
-                <li class="nav-item">
-                    <a class="" href="{{ route('login') }}">Login</a>
+                <li class="nav-itemRegister pl-4 pr-4 pt-2 pb-2">
+                    <a class="" href="{{ route('register') }}">Registro</a>
                 </li>
             </ul>
         </div>
@@ -491,7 +532,7 @@ animation: backText 20s linear infinite alternate;
                 <h1 class="tituloPagina">TwoFootball</h1>
             </div>
         </div>
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </section>
     <section id="Nosotros"class="container-fluid mt-6" >
         <div class="row justify-content-center align-items-center">
@@ -519,17 +560,7 @@ animation: backText 20s linear infinite alternate;
         </div>
 
     </section>
-    <div class="gif-container">
-        <img src="{{ asset('img/messi.gif') }}" alt="Messi" class="gif right" id="messi">
-        <img src="{{ asset('img/vela.gif') }}" alt="Vela" class="gif right fast" id="vela">
-        <img src="{{ asset('img/mane.gif') }}" alt="Mane" class="gif left" id="mane">
-        <img src="{{ asset('img/dybala.gif') }}" alt="Dybala" class="gif left" id="dybala">
-        <img src="{{ asset('img/modric.gif') }}" alt="Modric" class="gif left" id="modric">
-        <img src="{{ asset('img/morgan.gif') }}" alt="Morgan" class="gif left" id="morgan">
-        <img src="{{ asset('img/james.gif') }}" alt="James" class="gif right" id="james">
-        <img src="{{ asset('img/van-dijk.gif') }}" alt="Van Dijk" class="gif right" id="van-dijk">
-        <img src="{{ asset('img/de_bruyne.gif') }}" alt="De Bruyne" class="gif left" id="de_bruyne">
-    </div>
+    
     <section id="cardsJugadores">
     <div class="container">
         <h2 class="text-center my-4" id="tituloJugadores">Los 11 Jugadores Más Valiosos</h2>
