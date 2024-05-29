@@ -33,14 +33,18 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
 Route::get('/workspace/{userId}',[WorkspaceController::class, 'index'])->name('workspace');
-Route::get('/shop',[ShopController::class, 'index'])->name('shop');
+
 
 Route::post('/addProvider',[ProviderController::class,'nuevoProveedor'])->name('proveedor.nuevo');
 Route::post('editProvider/{id}',[ProviderController::class,'editarProveedor'])->name('proveedor.editar');
 Route::get('deleteProvider/{id}',[ProviderController::class,'eliminarProveedor'])->name('proveedor.eliminar');
+Route::get('graphics/{id}',[ProviderController::class,'graficaBarras'])->name('ruta_graficas');
 
 Route::post('/addSection',[SectionController::class,'nuevaSeccion'])->name('seccion.nuevo');
 
 Route::post('/addProduct',[ProductController::class,'nuevoProducto'])->name('producto.nuevo');
 Route::post('/editProduct',[ProductController::class,'editarProducto'])->name('producto.editar');
 Route::get('/deleteProduct/{id}',[ProductController::class,'eliminarProducto'])->name('producto.eliminar');
+
+Route::get('/shop',[ShopController::class, 'index'])->name('shop');
+Route::get('/proceed-to-payment', [ShopController::class, 'processPayment'])->name('proceed-to-payment');
