@@ -101,11 +101,40 @@
         }
         .brand-header {
             cursor: pointer;
-            background-color: #f8f9fa;
+            position: relative;
+            color:white;
             padding: 20px;
             border: 1px solid #dee2e6;
             border-radius: 5px;
             text-align: center;
+            transition: color 1s, box-shadow 1s;
+            z-index: 1;
+            overflow: hidden;
+            
+        }
+        .brand-header:hover{
+            transition-delay: 0s, 1s;
+            color: white;
+            box-shadow: 0 0 10px #005321,
+             0 0 20px #005321,
+             0 0 40px #005321,
+             0 0 80px #005321,
+             0 0 80px #005321;
+        }
+        .brand-header::before{
+            content:'';
+            position: absolute;
+            top:0;
+            left: -50px;
+            width: 0;
+            height: 100%;
+            background: #5ce079;
+            transform: skewX(35deg);
+            transition: 1s;
+            z-index: -1;
+        }
+        .brand-header:hover:before{
+            width: 100%;
         }
         .brand-container.expanded .brand-header {
             padding: 50px;
@@ -258,6 +287,9 @@
 .icono{
     margin: 10px;
 }
+#cartIcon{
+    color: rgb(0, 253, 156);
+}
     </style>
 </head>
 <body>
@@ -285,17 +317,24 @@
             <h1 class="logo">TWOFOOTBALL</h1>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-itemLogin pl-4 pr-4 pt-2 pb-2">
-                    <a class="" href="{{ route('login') }}">Inicia sesión</a>
-                    {{-- <a class="" href="{{ route('login') }}">Login</a> --}}
+                    <a href="{{ route('logout') }}"><button type="button">Cerrar sesión</button>
+                    </a>                        {{-- <a class="" href="{{ route('login') }}">Login</a> --}}
                 </li>
-                <li class="nav-itemRegister pl-4 pr-4 pt-2 pb-2">
+                {{-- <li class="nav-itemRegister pl-4 pr-4 pt-2 pb-2">
                     <a class="" href="{{ route('register') }}">Registro</a>
+                </li> --}}
+                <li class="nav-item me-5 mt-2">
+                    <a class="nav-link" href="#" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count me-5 mt-2" id="cartCount">0</span>
+                    </a>
                 </li>
             </ul>
         </div>
     </nav>
     <br><br><br><br><br><br><br>
     <div class="container center-container mt-4">
+        <h2 class="FollowOnefootball_header__dSfrr mb-4 text-center" id="tituloRedesSociales">Catálogo de Productos</h2>
         @foreach($providers as $provider)
             <div class="brand-container col-md-8">
                 <div class="brand-header">
@@ -391,54 +430,7 @@
             </div>
         </div>
     </div>
-    <nav class="FollowOnefootball_followUsWrapper__HypyZ m-5">
-        <h2 class="FollowOnefootball_header__dSfrr mb-4 text-center" id="tituloRedesSociales">Sigue a<!-- --> TwoFootball</h2>
-        <ul class="FollowTwofootballContenedor m-5">
-            <li class="card" id="colorCards">
-                <a href="https://www.instagram.com/onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                    <img alt="Instagram icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/instagram_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/instagram_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/instagram_dark.svg">
-                    <span title="Instagram">Instagram</span>
-                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@onefootball">@twofootball</span>
-                </a>
-            </li>
-            <li class="card" id="colorCards">
-                <a href="https://www.facebook.com/OneFootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                    <img alt="Facebook icon" decoding="async" class="icono"loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/facebook_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/facebook_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/facebook_dark.svg">
-                    <span title="Facebook">Facebook</span>
-                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball.de">@twofootball.de</span>
-                </a>
-            </li>
-            <li class="card" id="colorCards">
-                <a href="https://twitter.com/Onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                    <img alt="Twitter icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/twitter_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/twitter_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/twitter_dark.svg">
-                    <span title="Twitter">Twitter</span>
-                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball">@twofootball</span>
-                </a>
-            </li>
-            
-            <li class="card" id="colorCards">
-                <a href="https://www.youtube.com/channel/UC2-0sEOYbQFuaURd_AU6Krg" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                    <img alt="Youtube icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/youtube_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/youtube_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/youtube_dark.svg">
-                    <span title="Youtube">Youtube</span>
-                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball">@twofootball</span>
-                </a>
-            </li>
-            <li class="card" id="colorCards">
-                <a href="https://www.tiktok.com/@onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                    <img alt="TikTok icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/tiktok_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/tiktok_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/tiktok_dark.svg">
-                    <span title="TikTok">TikTok</span>
-                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@onefootball">@twofootball</span>
-                </a>
-            </li>
-            <li class="card" id="colorCards">
-                <a href="https://audioboom.com/channel/onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
-                    <img alt="AudioBoom icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/audioboom_dark_v2.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/audioboom_dark_v2.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/audioboom_dark_v2.svg">
-                    <span title="AudioBoom">AudioBoom</span>
-                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball">@twofootball</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+   
     <footer id="footerTWO">
         <div class="container text-center" >
             <a class="navbar-brand" href="#" ><img  class="logoTWO" src="img/LogoTF.png" alt="Logo" height="40"></a>
