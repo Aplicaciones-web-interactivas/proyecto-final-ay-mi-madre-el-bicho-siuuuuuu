@@ -23,10 +23,8 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            /* overflow-x: hidden; */
         }
         body{
-            /* background-color: rgb(0, 0, 0); */
             margin: 0;
             padding: 0;
             font-family: "Poppins", sans-serif;
@@ -81,7 +79,7 @@
             height: auto;
             margin-right: 10px;
         }
-        .table-responsive {
+        /* .table-responsive {
             height: 300px;
             overflow-y: auto;
         }
@@ -104,6 +102,76 @@
         .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
             background-color: #0056b3;
             color: white !important;
+        } */
+        .table {
+            border-collapse: collapse;
+            background-color: transparent;
+            color: white;
+            /* margin-left: 100px;
+            margin-right: 100px; */
+        }
+
+        .table th,
+        .table td {
+            border: none;
+        }
+        .table tbody tr:hover {
+            background-color: #444;
+            cursor: pointer;
+        }
+
+        .country-flag {
+            width: 30px;
+            height: 20px;
+        }
+
+        .dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
+            color: rgb(228, 228, 228);
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 15px;
+        }
+        
+        .dataTables_length select,
+        .dataTables_filter input {
+            background-color: #333;
+            color: white;
+            margin-right: 15px;
+            margin-left: 15px;
+            border: 1px solid #555;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        /* .dataTables_length select{
+            text-decoration: none;
+            color:white;
+            background-color: transparent;
+            border-radius: 1 rem;
+        } */
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            color: white !important;
+            background-color: #333;
+            cursor: pointer;
+            border: 1px solid #555;
+            padding: 5px 10px;
+            margin: 0 2px;
+            border-radius: 4px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+            color: #666 !important;
+        
+            background-color: #222;
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            background-color: #555;
+        }
+        .slick-slide {
+            margin: 0 10px;
+        }
+
+        .slick-prev:before, .slick-next:before {
+            color: black;
         }
         .player-card {
             display: flex;
@@ -114,49 +182,26 @@
             border-radius: 5px;
             background-color: #f9f9f9;
         }
-        .player-image {
+        /* .player-image {
             width: 50px;
             height: auto;
             margin-right: 15px;
-        }
+        } */
         .player-info {
             flex: 1;
         }
-        .player-info h5 {
+        /* .player-info h5 {
             margin: 0;
             font-size: 1.1em;
-        }
-        /* .news-container {
+        } */
+        .news-container {
             max-width: 800px;
             margin: 0 auto;
             margin-top: 30px;
             height: 500px;
         }
-        .news-item {
-            padding: 10px;
-            text-align: center;
-        }
-        .news-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-        .news-item h2 {
-            margin: 10px 0;
-        }
-        .news-item p {
-            font-size: 0.9em;
-            color: #555;
-        }
-        .news-item a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        .news-item a:hover {
-            text-decoration: underline;
-        } */
-        .news-container {
+   
+.news-container {
     width: 60%;
     height: 100%;
     /* height: 1000px; */
@@ -321,9 +366,104 @@ animation: backText 20s linear infinite alternate;
     -webkit-text-stroke: 2px rgb(255, 255, 255);
 
 }
+#tituloJugadores{
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+
+}
+#tituloClasificacion{
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+
+}
+.card{
+    background-color: transparent;
+}
+#footerTWO{
+    background-color: #000;
+    padding: 10px;
+    margin-top: 40px;
+}
+#letrafooter{
+    color: white;
+    font-size: smaller;
+}
+#tituloRedesSociales{
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+
+}
+.FollowOnefootball_grid__card__link__OooU8 {
+    
+    flex-direction: column;
+    align-items: flex-start;
+    color: var(--primary-text-color);
+    padding: 1rem;
+}
+
+/* @media (min-width: 400px) {
+    .FollowTwofootballContenedor {
+        grid-template-columns: repeat(1, 1fr);
+    }
+} */
+@media (max-width: 800px) {
+    .FollowTwofootballContenedor {
+        display: flex;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 400px) {
+    .FollowTwofootballContenedor {
+        display: flex;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+.FollowTwofootballContenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0rem;
+}
+
+.FollowOnefootball_followUsWrapper__HypyZ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+    max-width: calc(var(--root-max-width) + 0px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.FollowOnefootball_grid__card__bmt9z {
+    background-color: var(--alert-background-color);
+    min-width: 0;
+}
+.FollowOnefootball_grid__card__link__OooU8 span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    margin-top: .35rem;
+}
+.FollowOnefootball_grid__card__link__OooU8 .FollowOnefootball_grid__card__link__handle__LTz92 {
+    font-weight: 700;
+}
+.FollowOnefootball_followUsWrapper__HypyZ a {
+    text-decoration: none;
+}
+#colorCards{
+    /* background-color: #747474; */
+    background-color: #333;
+    color:white;
+    box-shadow: #d6d6d6;
+}
+.card{
+    margin:10px;
+}
+.icono{
+    margin: 10px;
+}
     </style>
 </head>
 <body>
+    <main>
     <nav class="navbar navbar-expand-lg fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -390,52 +530,50 @@ animation: backText 20s linear infinite alternate;
         <img src="{{ asset('img/van-dijk.gif') }}" alt="Van Dijk" class="gif right" id="van-dijk">
         <img src="{{ asset('img/de_bruyne.gif') }}" alt="De Bruyne" class="gif left" id="de_bruyne">
     </div>
-
-    <div class="container" style="margin-top: 75px">
-        <div class="row d-flex justify-content-between">
-            <div class="col-md-6">
-                <h1 class="mb-4 text-center">Clasificación Mundial FIFA</h1>
-                <div class="table-responsive">
-                    <table id="ranking-table" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Ranking</th>
-                                <th>Bandera</th>
-                                <th>Nombre del País</th>
-                                <th>Puntos</th>
-                                <th>Confederación</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ranking-table-body">
-                            <!-- Aquí se insertarán las filas de datos -->
-                        </tbody>
-                    </table>
+    <section id="cardsJugadores">
+    <div class="container">
+        <h2 class="text-center my-4" id="tituloJugadores">Los 11 Jugadores Más Valiosos</h2>
+        <div class="row">
+            <div class="card">
+                <div id="players-section" class="card slider">
+                    <!-- Aquí se insertarán los jugadores más valiosos -->
                 </div>
             </div>
-            <div class="col-md-6">
-                <h2 class="text-center">Los 11 Jugadores Más Valiosos</h2>
-                <div class="table-responsive">
-                    <div id="players-section" class="mt-3">
-                        <!-- Aquí se insertarán los jugadores más valiosos -->
-                    </div>
-                </div>
-            </div>
+    
         </div>
-
-
-        
     </div>
-    <br><br><br><br><br><br>
-
-    <div class="black-banner">
+</section>
+<section id="tablaSelecciones">
+    <div class="row d-flex justify-content-between">
+        <div class="col m-5">
+            <h1 class="mb-4 text-center" id="tituloClasificacion">Clasificación Mundial FIFA</h1>
+            <div class="table-responsive">
+                <table id="ranking-table" class="table">
+                    <thead>
+                        <tr>
+                            <th>Ranking</th>
+                            <th>Bandera</th>
+                            <th>Nombre del País</th>
+                            <th>Puntos</th>
+                            <th>Confederación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-table-body">
+                        <!-- Aquí se insertarán las filas de datos -->
+                    </tbody>
+                </table>
+            </div>
         </div>
+
+    </div>
+</section>
 
     <!-- Modal -->
     <div class="modal fade" id="playerModal" tabindex="-1" aria-labelledby="playerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="playerModalLabel">Información del Jugador</h5>
+                    <h5 class="modal-title">Información del Jugador</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -443,14 +581,14 @@ animation: backText 20s linear infinite alternate;
                 <div class="modal-body">
                     <!-- Aquí se insertará la información del jugador -->
                     <div id="playerDetails">
-                        <img id="modalPlayerImage" src="" alt="Jugador" class="player-image">
-                        <div class="player-info">
-                            <h5 id="modalPlayerName"></h5>
-                            <p id="modalPlayerAge"></p>
-                            <p id="modalPlayerBirthday"></p>
-                            <p id="modalPlayerClub"></p>
-                            <p id="modalPlayerPosition"></p>
-                            <p id="modalPlayerMarketValue"></p>
+                        <img id="modalPlayerImage" src="" alt="Jugador" class="img-fluid mb-3">
+                        <div>
+                            <h5 class="card-text" id="modalPlayerName"></h5>
+                            <p class="card-text" id="modalPlayerAge"></p>
+                            <p class="card-text" id="modalPlayerBirthday"></p>
+                            <p class="card-text" id="modalPlayerClub"></p>
+                            <p class="card-text" id="modalPlayerPosition"></p>
+                            <p class="card-text" id="modalPlayerMarketValue"></p>
                             <!-- Añadir más campos según sea necesario -->
                         </div>
                     </div>
@@ -458,7 +596,67 @@ animation: backText 20s linear infinite alternate;
             </div>
         </div>
     </div>
-
+    <nav class="FollowOnefootball_followUsWrapper__HypyZ m-5">
+        <h2 class="FollowOnefootball_header__dSfrr mb-4 text-center" id="tituloRedesSociales">Sigue a<!-- --> TwoFootball</h2>
+        <ul class="FollowTwofootballContenedor m-5">
+            <li class="card" id="colorCards">
+                <a href="https://www.instagram.com/onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
+                    <img alt="Instagram icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/instagram_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/instagram_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/instagram_dark.svg">
+                    <span title="Instagram">Instagram</span>
+                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@onefootball">@twofootball</span>
+                </a>
+            </li>
+            <li class="card" id="colorCards">
+                <a href="https://www.facebook.com/OneFootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
+                    <img alt="Facebook icon" decoding="async" class="icono"loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/facebook_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/facebook_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/facebook_dark.svg">
+                    <span title="Facebook">Facebook</span>
+                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball.de">@twofootball.de</span>
+                </a>
+            </li>
+            <li class="card" id="colorCards">
+                <a href="https://twitter.com/Onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
+                    <img alt="Twitter icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/twitter_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/twitter_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/twitter_dark.svg">
+                    <span title="Twitter">Twitter</span>
+                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball">@twofootball</span>
+                </a>
+            </li>
+            
+            <li class="card" id="colorCards">
+                <a href="https://www.youtube.com/channel/UC2-0sEOYbQFuaURd_AU6Krg" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
+                    <img alt="Youtube icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/youtube_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/youtube_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/youtube_dark.svg">
+                    <span title="Youtube">Youtube</span>
+                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball">@twofootball</span>
+                </a>
+            </li>
+            <li class="card" id="colorCards">
+                <a href="https://www.tiktok.com/@onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
+                    <img alt="TikTok icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/tiktok_dark.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/tiktok_dark.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/tiktok_dark.svg">
+                    <span title="TikTok">TikTok</span>
+                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@onefootball">@twofootball</span>
+                </a>
+            </li>
+            <li class="card" id="colorCards">
+                <a href="https://audioboom.com/channel/onefootball" class="FollowOnefootball_grid__card__link__OooU8" rel="noreferrer" target="_blank">
+                    <img alt="AudioBoom icon" decoding="async" class="icono" loading="lazy" width="24" height="24" data-nimg="1" style="color:transparent" srcset="https://image-service.onefootball.com/transform?w=32&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/audioboom_dark_v2.svg 1x, https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/audioboom_dark_v2.svg 2x" src="https://image-service.onefootball.com/transform?w=48&amp;dpr=2&amp;image=https://images.onefootball.com/cw/icons/audioboom_dark_v2.svg">
+                    <span title="AudioBoom">AudioBoom</span>
+                    <span class="FollowOnefootball_grid__card__link__handle__LTz92" title="@OneFootball">@twofootball</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <footer id="footerTWO">
+        <div class="container text-center" >
+            <a class="navbar-brand" href="#" ><img  class="logoTWO" src="img/LogoTF.png" alt="Logo" height="40"></a>
+    
+            <p id="letrafooter"class="mb-1">© 2024 TWO FOOTBALL</p>
+            <p id="letrafooter">
+                <a id="letrafooter" href="#" >TERMS</a> |
+                <a id="letrafooter" href="#" >PRIVACY</a> |
+                <a id="letrafooter" href="#" >ACCESSIBILITY</a> |
+                <a id="letrafooter" href="#" >COOKIE CHOICES</a>
+            </p>
+        </div>
+    </footer>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-sr9OCDsVxVpN/BSc6yl64k49l+3r8mJXieezSQtDqV4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
@@ -517,13 +715,13 @@ animation: backText 20s linear infinite alternate;
                 const playersSection = $('#players-section');
                 players.forEach(player => {
                     const playerCard = `<div class="player-card" data-player='${JSON.stringify(player)}'>
-                        <img src="${player.playerImage}" alt="${player.playerName}" class="player-image">
-                        <div class="player-info">
-                            <h5>${player.playerName}</h5>
-                            <p>
-                                <img src="${player.countryImage}" alt="${player.playerName}" class="player-flag">
+                        <img src="${player.playerImage}" alt="${player.playerName}" class="img-fluid mb-3">
+                        <div class="card-text">
+                            <h5 class="card-text">${player.playerName}</h5>
+                            <p class="card-text">
+                                <img src="${player.countryImage}" alt="${player.playerName}" class="img-fluid mb-3">
                                 ${player.currentPosition} | 
-                                <img src="${player.clubImage}" alt="${player.clubName}" class="player-club">
+                                <img src="${player.clubImage}" alt="${player.clubName}" class="img-fluid mb-3">
                                 ${player.clubName} | 
                                 Valor de mercado: ${player.marketValue} ${player.marketValueCurrency}
                             </p>
@@ -531,7 +729,35 @@ animation: backText 20s linear infinite alternate;
                     </div>`;
                     playersSection.append(playerCard);
                 });
-
+                $('.slider').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            arrows: true,
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
                 // Manejar el clic en una tarjeta de jugador para abrir el modal
                 $('.player-card').on('click', function() {
                     const player = $(this).data('player');
@@ -616,5 +842,7 @@ animation: backText 20s linear infinite alternate;
             parallax.css("transform", "translateY("+ scrollPosition * 0.5 + "px" + " ) " );
         })
     </script>
+    </main>
 </body>
+
 </html>
