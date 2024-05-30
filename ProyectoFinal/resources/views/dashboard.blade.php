@@ -338,6 +338,48 @@
 }
 
 
+.table>:not(caption)>*>* {
+    padding: .5rem .5rem;
+    color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+    background-color: #1a1a1a;
+    border-bottom-width: var(--bs-border-width);
+    box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+    color:white;
+}
+.btn-primary{
+    background-color: #004b38;
+    border:1px solid white;
+    bs-btn-hover-border-color: #004b38;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg:#004b38;
+    --bs-btn-active-border-color: #004b38;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #004b38;
+    --bs-btn-disabled-border-color: fff;
+}
+.btn:first-child:active{
+    background-color: #004b38;
+    border:1px solid white;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #004b38;
+    border-color: white;
+}
+.btn-primary:hover{
+    background-color: #099471;
+    border:1px solid white;
+}
+.btn-primary:active{
+    background-color: #004b38;
+    border:1px solid white;
+}
+.btn-primary:focus{
+    background-color: #004b38;
+    border:1px solid white;
+}
 </style>
         <!-- Styles -->
     </head>
@@ -369,10 +411,12 @@
             </div>
         </nav>
         <br><br><br><br><br><br><br><br><br>
+        <h1  class="mb-4 text-center" id="tituloRedesSociales">Lista de proveedores</h1>
         <div class="container mt-5">
+            
             <div class="header d-flex justify-content-between align-items-center mb-3">
-                <h1 class="text-white" id="h1_Lista">Lista de proveedores</h1>
-                <button class="btn btn-primary text-black" id="btn_AgregarP" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
+               
+                <button class="btn btn-primary" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
             </div>
             <table class="table table-hover">
                 <thead>
