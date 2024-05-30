@@ -291,46 +291,7 @@
     padding: 20px;
 }
 
-.table-header h1 {
-    color: #e4e4e4;
-    margin-bottom: 20px;
-}
 
-.table {
-    width: 100%;
-    margin-bottom: 1rem;
-    color: #e4e4e4;
-    background-color: #2c2c2c;
-}
-
-.table thead th {
-    border-bottom: 2px solid #444;
-}
-
-.table tbody tr {
-    border-bottom: 1px solid #444;
-}
-
-.table tbody tr:nth-child(odd) {
-    background-color: #2c2c2c;
-}
-
-.table tbody tr:nth-child(even) {
-    background-color: #333;
-}
-
-.table-hover tbody tr:hover {
-    color: #fff;
-    background-color: #444;
-}
-
-.table-dark {
-    background-color: transparent;
-}
-
-.table-responsive {
-    margin-top: 20px;
-}
 
 .btn {
     border: none;
@@ -362,6 +323,21 @@
 .text-center {
     text-align: center;
 }
+
+#btn_AgregarP{
+    background-color: #00ff00;
+}
+
+.table {
+    background-color: red; /* Hace que el fondo de la tabla sea transparente */
+    border: none; /* Elimina los bordes de la tabla */
+}
+
+.table th, .table td {
+    border: none; /* Elimina los bordes de las celdas de la tabla */
+}
+
+
 </style>
         <!-- Styles -->
     </head>
@@ -395,8 +371,8 @@
         <br><br><br><br><br><br><br><br><br>
         <div class="container mt-5">
             <div class="header d-flex justify-content-between align-items-center mb-3">
-                <h1>Lista de proveedores</h1>
-                <button class="btn btn-primary" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
+                <h1 class="text-white" id="h1_Lista">Lista de proveedores</h1>
+                <button class="btn btn-primary text-black" id="btn_AgregarP" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
             </div>
             <table class="table table-hover">
                 <thead>
@@ -428,8 +404,8 @@
         </div>
         {{-- <div class="container mt-5">
             <div class="header d-flex justify-content-between align-items-center mb-3">
-                <h1>Lista de proveedores</h1>
-                <button class="btn btn-primary" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
+                <h1 class="text-white" id="h1_Lista">Lista de proveedores</h1>
+                <button class="btn btn-primary text-black" id="btn_AgregarP" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
             </div>
             <table class="table table-hover">
                 <thead>
