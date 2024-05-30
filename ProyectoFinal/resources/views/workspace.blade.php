@@ -235,7 +235,7 @@
     
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 {{-- <a class="navbar-brand" href="#" ><img  class="logoTWO" src="img/LogoTF.png" alt="Logo" height="40"></a> --}}
-                <img src="img/LogoTF.png" alt="Logo" height="40" class="navbar-brand">
+                <img src="{{ asset('img/LogoTF.png') }}" alt="Logo" height="40" class="navbar-brand">
                 <h1 class="logo">TWOFOOTBALL</h1>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-itemLogin pl-4 pr-4 pt-2 pb-2">
@@ -526,7 +526,7 @@
 </div>
 <footer id="footerTWO">
     <div class="container text-center" >
-        <a class="navbar-brand" href="#" ><img  class="logoTWO" src="img/LogoTF.png" alt="Logo" height="40"></a>
+        <a class="navbar-brand" href="#" ><img  class="logoTWO" src="{{ asset('img/LogoTF.png') }}" alt="Logo" height="40"></a>
 
         <p id="letrafooter"class="mb-1">© 2024 TWO FOOTBALL</p>
         <p id="letrafooter">

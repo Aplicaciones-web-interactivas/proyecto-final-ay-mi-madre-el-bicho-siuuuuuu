@@ -289,6 +289,40 @@
 #cartIcon{
     color: rgb(0, 253, 156);
 }
+.btn-primary{
+    background-color: #004b38;
+    border:1px solid white;
+    bs-btn-hover-border-color: #004b38;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg:#004b38;
+    --bs-btn-active-border-color: #004b38;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #004b38;
+    --bs-btn-disabled-border-color: fff;
+}
+.btn:first-child:active{
+    background-color: #004b38;
+    border:1px solid white;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #004b38;
+    border-color: white;
+}
+.btn-primary:hover{
+    background-color: #099471;
+    border:1px solid white;
+}
+.btn-primary:active{
+    background-color: #004b38;
+    border:1px solid white;
+}
+.btn-primary:focus{
+    background-color: #004b38;
+    border:1px solid white;
+}
     </style>
 </head>
 <body>
