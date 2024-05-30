@@ -478,8 +478,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <button class="btn btn-primary mb-3 ms-4" data-toggle="modal" data-target="#agregarProveedor">Agregar Proveedor</button>
                 </div>
-        </nav> 
+
+                <ul class="navbar-nav ml-auto">
+                <li class="nav-item me-5">
+                    <a class="nav-link" href="{{ route('ruta_graficas_admin') }}">Gráficas</a>
+                </li>
+            </ul>
+        </nav>
         
+
         <div class="container mt-5">
             <div class="table-header">
                 <h1>Lista de proveedores</h1>
