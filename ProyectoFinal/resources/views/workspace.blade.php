@@ -220,6 +220,9 @@
 #cardsAñadir:hover{
     background-color: #636363;
 }
+/* #agregarSeccion{
+    color:white;
+} */
         </style>
     </head>
 
@@ -242,11 +245,20 @@
                         <a href="{{ route('logout') }}"><button type="button">Cerrar sesión</button>
                         </a>                        {{-- <a class="" href="{{ route('login') }}">Login</a> --}}
                     </li>
-                   
+                    <div class="mx-auto text-center pl-4 pr-4 pt-3 pb-2">
+                        <p class="h4">{{ $brandName }}</p>
+                    </div>
                 </ul>
             </div>
         </nav>
         <br><br><br><br><br><br>
+        <div class="container">
+            <div id="navbarSupportedContent">
+                <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#agregarSeccion">Agregar Seccion</button>
+            </div>
+            {{-- <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#agregarSeccion">Agregar Seccion</button> --}}
+
+        </div>
     {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -270,10 +282,28 @@
         </div>
     </nav> --}}
         
+    {{-- <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+     
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item me-5">
+                <a class="nav-link" href="{{ route('ruta_graficas', $userId) }}">Gráficas</a>
+            </li>
+        </ul>
+
+      
+
+    </div> --}}
 
  <!-- Secciones -->
 <div class="container mt-5">
     <h2 class="FollowOnefootball_header__dSfrr mb-4 text-center" id="tituloRedesSociales">Añade tus productos</h2>
+        {{-- <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#agregarSeccion">Agregar Seccion</button> --}}
+   
     @foreach ($sections as $section)
     <div class="section-box mb-3 p-3 section d-flex justify-content-between">
         <h5>{{ $section->name }}</h5>
