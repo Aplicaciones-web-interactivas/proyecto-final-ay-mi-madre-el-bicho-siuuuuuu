@@ -149,6 +149,10 @@
                 height: 400px;
                 display: flex;
                 flex-direction: column;
+                border: 2px solid darkolivegreen;
+                background-color: #1a1a1a;
+                color: white;
+                padding: 10px;
             }
 
             .custom-card img {
@@ -162,6 +166,60 @@
                 width: 1333px;
                 display: flex;
             }
+            .section-box{
+            
+            position: relative;
+            color:white;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            text-align: center;
+            transition: color 1s, box-shadow 1s;
+            z-index: 1;
+            overflow: hidden;
+            background-color: #1a1a1a;
+            }
+            #tituloRedesSociales{
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+
+}
+.btn-primary{
+    background-color: #004b38;
+    border:1px solid white;
+    bs-btn-hover-border-color: #004b38;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg:#004b38;
+    --bs-btn-active-border-color: #004b38;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #004b38;
+    --bs-btn-disabled-border-color: fff;
+}
+.btn:first-child:active{
+    background-color: #004b38;
+    border:1px solid white;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #004b38;
+    border-color: white;
+}
+.btn-primary:hover{
+    background-color: #099471;
+    border:1px solid white;
+}
+.btn-primary:active{
+    background-color: #004b38;
+    border:1px solid white;
+}
+.btn-primary:focus{
+    background-color: #004b38;
+    border:1px solid white;
+}
+#cardsAñadir:hover{
+    background-color: #636363;
+}
         </style>
     </head>
 
@@ -215,8 +273,9 @@
 
  <!-- Secciones -->
 <div class="container mt-5">
+    <h2 class="FollowOnefootball_header__dSfrr mb-4 text-center" id="tituloRedesSociales">Añade tus productos</h2>
     @foreach ($sections as $section)
-    <div class="section-box bg-light mb-3 p-3 section d-flex justify-content-between">
+    <div class="section-box mb-3 p-3 section d-flex justify-content-between">
         <h5>{{ $section->name }}</h5>
         <a onclick="openEditSectionModal('{{ $section->id }}','{{ $section->name }}')"><i class="fas fa-ellipsis-v ellipsis-icon"></i></a>
     </div>
@@ -226,7 +285,7 @@
         <div class="row product_container">
             <!-- Card for adding new product -->
             <div class="col-md-3 mb-3">
-                        <div class="card add-product-card custom-card d-flex justify-center" style="cursor: pointer;" onclick="openAddProductModal({{ $section->id }})">
+                        <div class="card add-product-card custom-card d-flex justify-center" id="cardsAñadir"style="cursor: pointer;" onclick="openAddProductModal({{ $section->id }})">
                             <i class="fa fa-plus fa-2x"></i>
                             <p>Añadir nuevo producto</p>
                         </div>
