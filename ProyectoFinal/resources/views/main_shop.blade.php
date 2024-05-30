@@ -92,9 +92,8 @@
         .logo{
             font-size:medium;
             font-family: 'Poppins', sans-serif;
-
-
         }
+        
         .brand-container {
             margin-bottom: 20px;
             transition: all 0.3s ease-in-out;
@@ -293,19 +292,6 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item me-5 mt-2">
-                    <a class="nav-link" href="#" id="cartIcon">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count me-5 mt-2" id="cartCount">0</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav> --}}
     <nav class="navbar navbar-expand-lg fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -320,9 +306,7 @@
                     <a href="{{ route('logout') }}"><button type="button">Cerrar sesión</button>
                     </a>                        {{-- <a class="" href="{{ route('login') }}">Login</a> --}}
                 </li>
-                {{-- <li class="nav-itemRegister pl-4 pr-4 pt-2 pb-2">
-                    <a class="" href="{{ route('register') }}">Registro</a>
-                </li> --}}
+    
                 <li class="nav-item me-5 mt-2">
                     <a class="nav-link" href="#" id="cartIcon">
                         <i class="fas fa-shopping-cart"></i>

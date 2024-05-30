@@ -20,6 +20,101 @@
 
         <!-- Styles -->
         <style>
+             * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: #1a1a1a;   
+            overflow-x: hidden;         
+        }
+             .navbar{
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 75px;
+            gap: 30px;
+            background-color: #000;
+            color:white;
+            font-family: 'Poppins', sans-serif;
+            /* opacity: 0.5; */
+        }
+        #navbarSupportedContent{
+            width: 100%;
+            overflow: hidden;
+        }
+        .nav-itemLogin{
+            text-decoration: none;
+            font-size: small;
+            font-weight: 600;
+            /* padding: 5px; */
+            border-radius: 0.4rem;
+            color: rgb(0, 0, 0);
+            background: transparent;
+            margin:20px;
+            color: white;
+            appearance: none;
+            display: inline-block;
+            transition: border-color 0.3s ease-in-out;     
+        }
+        .nav-itemLogin a{
+            color:white;
+            text-decoration: none;
+            display: inline-block;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .nav-itemRegister{
+            text-decoration: none;
+            font-size: small;
+            font-weight: 600;
+            /* padding: 5px; */
+            border-radius: 0.4rem;
+            color: rgb(0, 0, 0);
+            background: white;
+            color:black;
+            margin:20px;
+            appearance: none;
+            display: inline-block;
+            transition: border-color 0.3s ease-in-out;
+            
+        }
+        .nav-itemRegister a{
+            color:black;
+            text-decoration: none;
+            display: inline-block;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .nav-itemLogin:hover{
+            border: solid 0.8px #f9f9f9;
+        }
+        .logo{
+            font-size:medium;
+            font-family: 'Poppins', sans-serif;
+
+
+        }
+        .navbar .nav-item .nav-link {
+            padding: 0.75rem; /* Añadir padding al ícono del carrito */
+        }
+        .navbar-brand{
+    height: 40px;
+    width: 30px;
+}
+        #footerTWO{
+    background-color: #000;
+    padding: 10px;
+    margin-top: 40px;
+}
+#letrafooter{
+    color: white;
+    font-size: smaller;
+}
             .section-box {
                 display: flex;
                 justify-content: space-between;
@@ -71,9 +166,30 @@
     </head>
 
     
-    <body class="antialiased">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <body>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                {{-- <a class="navbar-brand" href="#" ><img  class="logoTWO" src="img/LogoTF.png" alt="Logo" height="40"></a> --}}
+                <img src="img/LogoTF.png" alt="Logo" height="40" class="navbar-brand">
+                <h1 class="logo">TWOFOOTBALL</h1>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-itemLogin pl-4 pr-4 pt-2 pb-2">
+                        <a class="" href="{{ route('ruta_graficas', $userId) }}">Gráficas</a>
+                    </li>
+                    <li class="nav-itemLogin pl-4 pr-4 pt-2 pb-2">
+                        <a href="{{ route('logout') }}"><button type="button">Cerrar sesión</button>
+                        </a>                        {{-- <a class="" href="{{ route('login') }}">Login</a> --}}
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+        <br><br><br><br><br><br>
+    {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -94,7 +210,7 @@
             </div>
 
         </div>
-    </nav>
+    </nav> --}}
         
 
  <!-- Secciones -->
@@ -319,7 +435,19 @@
         </div>
     </div>
 </div>
+<footer id="footerTWO">
+    <div class="container text-center" >
+        <a class="navbar-brand" href="#" ><img  class="logoTWO" src="img/LogoTF.png" alt="Logo" height="40"></a>
 
+        <p id="letrafooter"class="mb-1">© 2024 TWO FOOTBALL</p>
+        <p id="letrafooter">
+            <a id="letrafooter" href="#" >TERMS</a> |
+            <a id="letrafooter" href="#" >PRIVACY</a> |
+            <a id="letrafooter" href="#" >ACCESSIBILITY</a> |
+            <a id="letrafooter" href="#" >COOKIE CHOICES</a>
+        </p>
+    </div>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-sr9OCDsVxVpN/BSc6yl64k49l+3r8mJXieezSQtDqV4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
